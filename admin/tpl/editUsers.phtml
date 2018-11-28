@@ -1,0 +1,13 @@
+<p><?php if(isset($error)):?><?= $error?><?php endif;?></p>
+<p><?php if(isset($errorException)):?><?= $errorException ?><?php endif;?></p>
+
+
+<table>
+    
+    <?php for( $i = 0; $i > count($results); $i++) : ?>
+         <tr><?= $results['aut_name']. ' '. $results['aut_first_name']  ?></tr>
+    <?php endfor ?>
+
+
+
+</table>
