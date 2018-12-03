@@ -1,13 +1,52 @@
-<p><?php if(isset($error)):?><?= $error?><?php endif;?></p>
-<p><?php if(isset($errorException)):?><?= $errorException ?><?php endif;?></p>
 
 
-<table>
-    
-    <?php for( $i = 0; $i > count($results); $i++) : ?>
-         <tr><?= $results['aut_name']. ' '. $results['aut_first_name']  ?></tr>
-    <?php endfor ?>
+<section class="editUser">
+
+    <h1>Fiche utilisateur</h1>
+
+    <form method="POST" action="modifUser.php">
+
+         <p>
+            <label for="nom">Nom</label>
+            <input type="text" name="nom" id="nom" value="<?= $tabPost['nom'] ?>" />
+        </p>
+
+        <p>
+            <label for="prenom">Prenom</label>
+            <input type="text" name="prenom" id="prenom" value="<?= $tabPost['prenom'] ?>" />
+        </p>
+
+        <p>
+            <label for="mail">Mail</label>
+            <input type="email" name="mail" id="mail" value="<?= $tabPost['mail'] ?>"  />
+        </p>
+
+        
+         <p>
+            <label for="biographie">Biographie</label>
+            <input type="text" name="biographie" id="biographie" value="<?= $tabPost['biographie'] ?>" />
+        </p>
 
 
+        <p>
+            <label for="avatar">avatar</label>
+            <input type="text" name="avatar" id="avatar" value="<?= $tabPost['avatar'] ?>" />
+        </p>
 
-</table>
+        <p>
+            <label for="pseudo">Pseudo</label>
+            <input type="text" name="pseudo" id="pseudo" value="<?= $tabPost['pseudo'] ?>" />
+        </p>
+         
+        <p>
+           
+            <input type="hidden" name="id" id="id" value="<?= $tabPost['id'] ?>" />
+        </p>
+         
+
+        <p>
+            <input type="submit" value="Modifier" />
+        </p>
+    </form>
+
+</section>

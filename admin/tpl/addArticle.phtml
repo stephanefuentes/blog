@@ -1,0 +1,58 @@
+
+<section class="addArticles">
+    <p><?php if(isset($error)):?><?= $error?><?php endif;?></p>
+    <p><?php if(isset($errorException)):?><?= $errorException ?><?php endif;?></p>
+
+
+
+    <form method="POST" action="addArticles.php"  enctype="multipart/form-data">
+
+
+         <p>
+            <label for="titre">titre de l'article</label>
+            <input type="text" name="titre" id="titre" value="" />
+        </p>
+
+        <p>
+            <label for="article">Contenu de mon article</label>       
+            <textarea name="article" id="article" rows="10" cols="50">
+        
+            </textarea>  
+        </p> 
+
+         <p>
+            <label for="tag">Mot clef</label>
+            <input type="text" name="tag" id="tag" value="" />
+        </p>
+
+
+        <p>
+            <label for="date">date de publication</label>
+            <input type="date" name="date" id="date" value="" />
+        </p>
+
+        <p>
+            <label for="avatar">fichier pour l'avatar </label>  
+            <input type="file" name="avatar" id="avatar">   
+        </p>
+
+        <p>
+            <label for="categorie">Catégorie de l'article ?</label><br />
+            <select name="categorie" id="categorie">
+       
+                <?php for( $i = 0 ; $i < count($resultCategorie); $i++ ) : ?>
+                    <option value="<?= $resultCategorie[$i]['cat_id']?>"><?= $resultCategorie[$i]['cat_name']?></option>               
+                <?php endfor ?>    
+
+            </select>
+        </p>
+        
+         
+
+        <p>
+            <input type="submit" value="Enregister article" />
+        </p>
+
+    </form>
+
+</section>

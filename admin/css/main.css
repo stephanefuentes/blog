@@ -18,10 +18,73 @@ img{
     height: auto;
 }
 
+p{
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+    font-size: 3rem;
+    margin: 0 auto 2rem;
+}
 
 body{
     background: silver;
     font-size: 1.5rem;
+}
+
+header{
+    min-height: 2rem;
+}
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+textarea{
+    resize: none;
+}
+
+span a{
+    position: fixed;
+}
+
+div{
+    width: 20rem;
+    margin: 4.8rem 0 0 0;
+}
+    .nav{    
+        width: 20rem;
+        position: fixed;
+    }
+        .nav nav{
+            background: darkgray;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+            .nav nav a{
+                text-decoration: none;
+                padding: 0.2rem 2rem;
+                transition: all 0.7s ease;
+                width: 100%;
+                text-align: center;
+                margin: 0.1rem 0;
+                display: inline-block;
+                border-bottom: 1px solid burlywood;
+                color: darkslateblue;
+            }
+
+            .nav nav a:hover, .active{
+                background: bisque;
+            }
+        
+section.include{
+    width: 60%;
+    
 }
 
 
@@ -29,12 +92,86 @@ table{
     border-collapse: collapse;
 }
 
-
-label{
-    display: block;
+.listUsers h1{
+        text-align: center;
+        font-size: 2.5rem;
 }
+
+.listUsers table{
+    margin: 0 auto;
+}
+
+    .listUsers tr:nth-of-type(even){
+        /*background: darkkhaki;*/
+        background:rgba(189, 183, 107, 0.5);
+    }
+
+    .listUsers tr:nth-of-type(odd){
+        /*background: cadetblue;*/
+        background:rgba(95, 158, 160, 0.5);
+    }
+
+
+        .listUsers td{
+            padding: 0.5rem 2rem;
+        }
+
+        
+
+        .listUsers td.icon i.fas{
+            color: rgb(152, 108, 9);
+            transition: all 0.2s ease;
+            
+        }
+
+        .listUsers td.icon i.fas:hover{
+           transform: scale(1.3);
+        }
+
+    .listUsers tr td.mail{
+        padding: 0.5rem 5rem;
+    }
+
+
+form{
+    text-align: center;
+}
+
+    form p:not(:last-of-type) input{
+        width: 20rem;
+    }
+
+    form input[type="file"]{
+        margin-left: 10rem;
+    } 
+
+    form p:last-of-type input{
+        background: bisque;
+        border-radius: 5px;
+        padding: 0.3rem 1rem;
+        transition: all 0.3s ease;
+    }
+
+        form p:last-of-type input:hover{
+            background: rgb(230, 176, 110);
+        }
+
+    label{
+        display: block;
+    }
+
+
+.addUser textarea{
+    width: 50rem;
+    height: 20rem;
+}
+
 
 
 .error{
     background: rgb(231, 186, 186);
+}
+
+.plus{
+    min-width: 10rem;
 }

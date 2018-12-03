@@ -1,22 +1,29 @@
 
-<main class="login">
+<section class="login">
+
+    <p><?php if(isset($error)):?><?= $error?><?php endif;?></p>
+    <p><?php if(isset($errorException)):?><?= $errorException ?><?php endif;?></p>
+
 
     <form method="POST" action="login.php">
+        <fieldset>
+            <legend>Login</legend>
+            <p>
+                <label for="mail">Mail</label>
+                <input type="email" name="mail" id="mail" />
+            </p>
 
-        <p>
-            <label for="pseudo">Pseuso</label>
-            <input type="text" name="pseudo" id="pseudo" />
-        </p>
+            <p>
+                <label for="password">Mot de passe</label>
+                <input type="password" name="password" id="password"  />
+            </p>
 
-        <p>
-            <label for="Password">Mot de passe</label>
-            <input type="password" name="Password" id="Password"  />
-        </p>
+            <p>
+                <input type="submit" value="Envoyer" />
+            </p>
 
-
-        <input type="submit" value="Insérer" />
-
+        </fieldset>
 
     </form>
 
-</main>
+</section>

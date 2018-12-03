@@ -1,0 +1,19 @@
+
+<section class="listUsers">
+
+    <h1>Liste des utilisateurs</h1>
+
+    <table>
+        <?php for( $i = 0; $i < count( $resultListUser); $i++ ) :?>
+         <tr>
+            <td><?= $resultListUser[$i]["aut_name"] ?></td>
+            <td><?= $resultListUser[$i]["aut_first_name"] ?></td>
+            <td class="mail"><?= $resultListUser[$i]["aut_email"] ?></td>
+            <td class="icon"><a href="editUser.php?id=<?= $resultListUser[$i]["aut_id"] ?>"><i class="fas fa-user-edit"></i></a></td>
+            <td class="icon"><a href="delUsers.php?id=<?= $resultListUser[$i]["aut_id"] ?>"><i class="fas fa-trash-alt"></i></a></td>
+            </tr>   
+        <?php endfor ?>
+    </table>
+
+</section>
+

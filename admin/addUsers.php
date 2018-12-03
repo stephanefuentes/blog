@@ -1,13 +1,17 @@
 <?php
+session_start();
 
 
 include('../config/config.php');
 include('../lib/bdd.lib.php');
 
+connectSession();
+
+
 $formulaireBienRempli = 1;
 $bonMotDePasse = 1;
 $mailValide = 1;
-
+$error ='';
 
 
 $tabPost = ['nom' => '', 'prenom' => '', 'mail' => '', 'bio' => '', 'avatar' => '', 'pseudo' => '' ];
@@ -25,10 +29,10 @@ if(array_key_exists('nom', $_POST))
 
         foreach($_POST as $cle => $value)
         {
-            if(trim($value))
+            if(!trim($value))
             {
 
-                echo '<p>Tous les champs n\'ont pas été correctement remplis</p>';
+               
                 $formulaireBienRempli = 0;
                 break;
             }
@@ -38,7 +42,7 @@ if(array_key_exists('nom', $_POST))
 
         if($_POST['password'] !== $_POST['confirmPassword'])
         {
-            echo '<p>le mots de passe et la confirmation du mot de passe ne correspondent pas, blaireau !</p>';
+            $error .= '<p>le mots de passe et la confirmation du mot de passe ne correspondent pas, blaireau !</p>';
             $bonMotDePasse = 0;
 
         }
@@ -47,7 +51,7 @@ if(array_key_exists('nom', $_POST))
         // si le mail n'est pas valide, renvoir False, sinon renvoie la string
         if ( !filter_var($_POST['mail'], 274) )
         {
-            echo '<p>Le mail n\'est pas valide </p>';
+            $error .= '<p>Le mail n\'est pas valide </p>';
             $mailValide = 0;
         }
 
@@ -61,9 +65,9 @@ if(array_key_exists('nom', $_POST))
     
             $insertUser->execute(['nom' => $_POST['nom'], 'prenom' => $_POST['prenom'], 'mail' => $_POST['mail'], 'monpassword' => password_hash($_POST['password'],PASSWORD_BCRYPT), 'bio' => $_POST['biographie'], 'avatar' => $_POST['avatar'], 'pseudo' => $_POST['pseudo'] ]);
     
-            echo ('<h1>Le formulaire a été bien transmie</h1>');
+            $error .='<h1>Le formulaire a été bien transmie</h1>';
 
-            $tabPost = ['nom' => $_POST['nom'], 'prenom' => $_POST['prenom'], 'mail' => $_POST['mail'], 'bio' => $_POST['biographie'], 'avatar' => $_POST['avatar'], 'pseudo' => $_POST['pseudo'] ];
+          /* $tabPost = ['nom' => $_POST['nom'], 'prenom' => $_POST['prenom'], 'mail' => $_POST['mail'], 'bio' => $_POST['biographie'], 'avatar' => $_POST['avatar'], 'pseudo' => $_POST['pseudo'] ];*/
     
     
         }
@@ -90,8 +94,10 @@ if(array_key_exists('nom', $_POST))
 
 
 
-$vue = 'addUsers.phtml';
-$tittle = "fonction INSERT";
+$vue='addUsers.phtml';
+$title = 'Ajouter un utilisateur';
+$lienActif = "addUser";
+
 
 include('tpl/layout.phtml');
 

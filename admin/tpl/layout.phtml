@@ -4,17 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
-    <title><?= $tittle ?></title>
+    <title><?= $title ?></title>
 </head>
 <body>
+<header>
+   
+</header>
 
+    <p><?php if(isset($error)):?><?= $error?><?php endif;?></p>
+    <p><?php if(isset($errorException)):?><?= $errorException ?><?php endif;?></p>
 
+    <span>
+        <?php if( isset($_SESSION['connect']) && $_SESSION['connect']==true ):?>
+            <a href="logout.php">Deconnexion</a>
+        <?php endif ?>
+    </span>
 
+    <?php if(array_key_exists('error',$_SESSION)): ?>
+    <p><?= $_SESSION['error']; unset($_SESSION['error']); endif ?></p>
     
 
+<main>
+    <div>
+        <section class="nav">
+            <nav>
+                
+                <a href="listUsers.php" class="<?php if($lienActif == "listUser"){ echo "active" ;}?> ">Liste des utilisateur</a>
+                <a href="addUsers.php" class="<?php if($lienActif == "addUser"){ echo "active" ;}?> ">Nouvel utilisateur</a>
+                <a href="listArticles.php" class="<?php if($lienActif == "listArticles"){ echo "active" ;}?> ">Liste des article</a>
+                <a href="addArticles.php" class="<?php if($lienActif == "addArticles"){ echo "active" ;}?> ">Ajouter un article</a>
+                
 
-<?php include($vue); ?>
+            </nav>
+        </section>
+    </div>
+
+
+    <section class="include">
+
+        <?php include($vue); ?>
+
+    </section>
+
+
+
+    <section class="plus">
+    </section>
+
+</main>
+
+
 
 
 

@@ -1,9 +1,8 @@
 
 
-<main>
-<p><?php if(isset($error)):?><?= $error?><?php endif;?></p>
-<p><?php if(isset($errorException)):?><?= $errorException ?><?php endif;?></p>
 
+
+<section class="addUser">
 
     <form method="post" action="addUsers.php">
 
@@ -34,7 +33,9 @@
 
          <p>
             <label for="biographie">Biographie</label>
-            <input type="text" name="biographie" id="biographie" value="<?= $tabPost['bio'] ?>" />
+            <textarea name="biographie" id="biographie" value="">
+                <?= $tabPost['bio'] ?>
+            </textarea>
         </p>
 
 
@@ -49,9 +50,9 @@
         </p>
          
 
-
-        <input type="submit" value="Insérer" />
-
+        <p>
+            <input type="submit" value="Insérer" />
+        </p>
     </form>
+</section>
 
-</main>
